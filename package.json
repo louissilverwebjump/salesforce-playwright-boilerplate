@@ -1,0 +1,56 @@
+{
+  "name": "salesforce-playwright-boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate for testing Salesforce Lightning with Playwright + BDD (Cucumber/Gherkin)",
+  "main": "index.js",
+  "scripts": {
+    "auth": "playwright test tests/auth.setup.ts --project=setup --headed",
+    "test": "npx bddgen && playwright test",
+    "test:ui": "npx bddgen && playwright test --ui",
+    "test:debug": "npx bddgen && playwright test --debug",
+    "test:headed": "npx bddgen && playwright test --headed",
+    "test:report": "playwright show-report",
+    "test:dev": "ENV_FILE=.env.dev npm test",
+    "test:qa": "ENV_FILE=.env.qa npm test",
+    "test:update-snapshots": "npx bddgen && playwright test --update-snapshots",
+    "test:smoke": "npx bddgen && playwright test --grep @smoke",
+    "test:regression": "npx bddgen && playwright test --grep @regression",
+    "scaffold": "npx tsx scripts/scaffold.ts",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@commitlint/cli": "^20.5.0",
+    "@commitlint/config-conventional": "^20.5.0",
+    "@eslint/js": "^10.0.1",
+    "@faker-js/faker": "^10.4.0",
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^25.5.2",
+    "dotenv": "^17.4.1",
+    "eslint": "^10.2.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-playwright": "^2.10.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "playwright-bdd": "^8.5.0",
+    "prettier": "^3.8.1",
+    "tsx": "^4.21.0",
+    "typescript-eslint": "^8.58.1"
+  }
+}

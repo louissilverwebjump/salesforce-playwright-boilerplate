@@ -1,0 +1,19 @@
+{
+  // Format on save — uses Prettier automatically
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // ESLint auto-fix on save (removes unused imports, fixes lint issues)
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  // Ensure ESLint validates TypeScript files
+  "eslint.validate": ["typescript"],
+
+  // Consistent end of line
+  "files.eol": "\n",
+
+  // Recommended extensions for the project
+  "recommendations": ["esbenp.prettier-vscode", "dbaeumer.vscode-eslint"]
+}
