@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "auth": "playwright test tests/auth.setup.ts --project=setup --headed",
+    "auth:dev": "ENV_FILE=.env.dev npm run auth",
+    "auth:qa": "ENV_FILE=.env.qa npm run auth",
     "test": "npx bddgen && playwright test",
     "test:ui": "npx bddgen && playwright test --ui",
     "test:debug": "npx bddgen && playwright test --debug",

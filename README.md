@@ -44,24 +44,47 @@ npm test
 
 > Esse é o caminho mais simples (**Standard App** — login via browser). Para login 100% automático via API (ideal para CI/CD), veja o [guia de Connected App](docs/auth-connected-app.md).
 
+### Múltiplos ambientes (dev / qa)
+
+Se sua equipe usa mais de um org, crie um `.env` para cada ambiente:
+
+```bash
+cp .env.standard.example .env.dev   # preencha com credenciais do dev
+cp .env.standard.example .env.qa    # preencha com credenciais do qa
+```
+
+Rode os testes apontando para o ambiente desejado:
+
+```bash
+npm run auth:dev    # autentica no dev (somente Standard App)
+npm run auth:qa     # autentica no qa (somente Standard App)
+npm run test:dev    # usa .env.dev
+npm run test:qa     # usa .env.qa
+```
+
+Cada ambiente salva sua sessão separadamente (`.auth/salesforce-dev.json`, `.auth/salesforce-qa.json`), então não há conflito entre orgs.
+
 ---
 
 ## Comandos Disponíveis
 
-| Comando                                | O que faz                       |
-| -------------------------------------- | ------------------------------- |
-| `npm test`                             | Roda todos os testes (headless) |
-| `npm run test:headed`                  | Roda com o browser visível      |
-| `npm run test:ui`                      | Modo interativo do Playwright   |
-| `npm run test:debug`                   | Depuração passo a passo         |
-| `npm run test:smoke`                   | Apenas cenários `@smoke`        |
-| `npm run test:regression`              | Apenas cenários `@regression`   |
-| `npm run test:dev`                     | Roda contra o ambiente dev      |
-| `npm run test:qa`                      | Roda contra o ambiente qa       |
-| `npm run test:report`                  | Abre o último relatório HTML    |
-| `npm run scaffold -- --object Contact` | Gera arquivos para novo objeto  |
-| `npm run lint`                         | Verifica erros de código        |
-| `npm run format`                       | Formata todos os arquivos       |
+| Comando                                | O que faz                            |
+| -------------------------------------- | ------------------------------------ |
+| `npm test`                             | Roda todos os testes (headless)      |
+| `npm run test:headed`                  | Roda com o browser visível           |
+| `npm run test:ui`                      | Modo interativo do Playwright        |
+| `npm run test:debug`                   | Depuração passo a passo              |
+| `npm run test:smoke`                   | Apenas cenários `@smoke`             |
+| `npm run test:regression`              | Apenas cenários `@regression`        |
+| `npm run test:dev`                     | Roda contra o ambiente dev           |
+| `npm run test:qa`                      | Roda contra o ambiente qa            |
+| `npm run auth`                         | Autentica no ambiente padrão (.env)  |
+| `npm run auth:dev`                     | Autentica no ambiente dev (.env.dev) |
+| `npm run auth:qa`                      | Autentica no ambiente qa (.env.qa)   |
+| `npm run test:report`                  | Abre o último relatório HTML         |
+| `npm run scaffold -- --object Contact` | Gera arquivos para novo objeto       |
+| `npm run lint`                         | Verifica erros de código             |
+| `npm run format`                       | Formata todos os arquivos            |
 
 ---
 
