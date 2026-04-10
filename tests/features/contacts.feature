@@ -27,5 +27,5 @@ Feature: Contatos (Contact)
   Scenario: Deve exibir diálogo de erro ao salvar sem campos obrigatórios
     When eu tento salvar um contato com campos obrigatórios vazios
     Then o diálogo de erro de validação deve estar visível
-    And o erro de validação deve mostrar link para "Last Name"
+    And o erro de validação deve mostrar link para "Name"
     And eu fecho o erro de validação e cancelo

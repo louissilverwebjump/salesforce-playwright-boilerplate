@@ -70,4 +70,16 @@ export class ContactPage extends BasePage {
   async deleteContact(name: string) {
     await this.deleteRecord(name, 'Contact');
   }
+
+  /**
+   * Overrides the base wait to handle Salesforce Contact's default list redirect.
+   * In this org, navigating to `/lightning/o/Contact/list` redirects to
+   * `/pipelineInspection` instead of staying at `/list`.
+   *
+   * @param _objectApiName - Ignored; scoped to Contact URL pattern.
+   */
+  override async waitForListPage(_objectApiName: string) {
+    await this.page.waitForURL('**/lightning/o/Contact/**', { timeout: 30_000 });
+    await this.newButton.waitFor({ state: 'visible' });
+  }
 }
