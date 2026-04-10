@@ -8,6 +8,7 @@ Suite de testes automatizados para Salesforce Lightning, construída com [Playwr
 
 - [Pré-requisitos](#pré-requisitos)
 - [Início Rápido](#início-rápido)
+- [Seu Primeiro Teste](#seu-primeiro-teste)
 - [Comandos Disponíveis](#comandos-disponíveis)
 - [Como o Projeto Funciona](#como-o-projeto-funciona)
 - [Estrutura do Projeto](#estrutura-do-projeto)
@@ -43,6 +44,14 @@ npm test
 ```
 
 > Esse é o caminho mais simples (**Standard App** — login via browser). Para login 100% automático via API (ideal para CI/CD), veja o [guia de Connected App](docs/auth-connected-app.md).
+
+---
+
+## Seu Primeiro Teste
+
+Nunca criou um teste Playwright para Salesforce? Começe pelo guia passo a passo:
+
+> **[docs/first-test-guide.md](docs/first-test-guide.md)** — Cobre tudo: scaffold, seletores, Page Object, Factory, MCP Playwright e como pedir ajuda ao Copilot.
 
 ### Múltiplos ambientes (dev / qa)
 
@@ -199,6 +208,7 @@ O GitHub Actions roda os testes a cada push/PR usando **Connected App** (login v
 
 | Documento                                                | O que contém                                     |
 | -------------------------------------------------------- | ------------------------------------------------ |
+| [**Seu Primeiro Teste**](docs/first-test-guide.md)       | Guia passo a passo + MCP Playwright + Copilot    |
 | [Autenticação Standard App](docs/auth-standard-app.md)   | Login via browser + MFA manual                   |
 | [Autenticação Connected App](docs/auth-connected-app.md) | Login via API OAuth 2.0 + setup no Salesforce    |
 | [Arquitetura BDD](docs/architecture-bdd.md)              | Fluxo de geração, convenção de idiomas, fixtures |
